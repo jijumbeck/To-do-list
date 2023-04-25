@@ -11,6 +11,7 @@ const ToDoListLine = (props) => {
 
     return(
         <div className="toDoListLine">
+            {props.index}
             <div>
                 <Checkbox 
                     {...isCompleted ? 'defaultChecked' : ''}
@@ -22,7 +23,9 @@ const ToDoListLine = (props) => {
                     onChange={(event) => setTaskName(event.target.value)}
                 />
             </div>
-            <IconButton onClick={props.onClickDeleteButton}>
+            <IconButton onClick={() => {
+                props.onClickDeleteButton(props.index);
+            }}>
                 <DeleteButton/>
             </IconButton>
         </div>
