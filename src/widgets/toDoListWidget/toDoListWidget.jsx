@@ -6,6 +6,26 @@ import { Button } from "@mui/material";
 
 const ToDoListWidget = () => {
     const [taskList, setTasks] = useState([]);
+    console.log(taskList);
+
+    const deleteTaskHandler = index => {
+        const filterTasks = taskList.filter(task => task.index !== index);
+        setTasks(filterTasks);
+    }
+
+    const updateTaskText = (index, newText) => {
+        const newTasks = [...taskList];
+        newTasks
+            .find(task => task.index === index)
+            .taskText = newText;
+        setTasks(newTasks);
+    };
+
+    const updateIsCompleted = (index, isComplete) => {
+        const newTasks = [...taskList];
+        newTasks.find(task => task.index === index).isComplete = isComplete;
+        setTasks(newTasks);
+    };
 
     // useEffect(() => {
     //     update(tasks);
@@ -28,10 +48,9 @@ const ToDoListWidget = () => {
             }>Новая таска</Button>
             <ToDoList 
                 taskList={taskList}
-                deleteTaskHandler={index => {
-                    const filterTasks = taskList.filter(task => task.index !== index);
-                    setTasks(filterTasks);
-                }}
+                deleteTaskHandler={deleteTaskHandler}
+                updateTaskTextHandler={updateTaskText}
+                updateIsCompletedHadler={updateIsCompleted}
             />
         </>
     )

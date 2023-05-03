@@ -11,16 +11,14 @@ const ToDoListLine = (props) => {
 
     return(
         <div className="toDoListLine">
-            {props.index}
             <div>
                 <Checkbox 
-                    {...isCompleted ? 'defaultChecked' : ''}
-                    onChange={(event) => setIsCompleted(event.target.value)} 
+                    onChange={(event) => props.onChangeIsCompleted(props.index, event.target.checked)} 
                 />
                 <TextField 
                     variant="standard" 
                     defaultValue={taskText}
-                    onChange={(event) => setTaskName(event.target.value)}
+                    onChange={(event) => props.onChangeTaskText(props.index, event.target.value)}
                 />
             </div>
             <IconButton onClick={() => {

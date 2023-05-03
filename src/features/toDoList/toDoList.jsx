@@ -1,7 +1,7 @@
 import ToDoListLine from "../toDoLine/toDoLine";
 
 
-const ToDoList = ({taskList, deleteTaskHandler}) => {
+const ToDoList = ({taskList, deleteTaskHandler, updateTaskTextHandler, updateIsCompletedHadler}) => {
 
     return(
         <div>
@@ -10,6 +10,8 @@ const ToDoList = ({taskList, deleteTaskHandler}) => {
                     (task, index) => <ToDoListLine 
                                         key={index} {...task} 
                                         onClickDeleteButton={deleteTaskHandler}
+                                        onChangeTaskText={updateTaskTextHandler}
+                                        onChangeIsCompleted={updateIsCompletedHadler}
                                         />)
             }
         </div>
