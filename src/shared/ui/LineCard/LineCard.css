@@ -1,9 +1,8 @@
-.toDoListLine {
+.lineCard {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    width: 60%;
     height: 50px;
 
     background-color: #c8ebff;

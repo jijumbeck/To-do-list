@@ -1,0 +1,16 @@
+.toDoListWidget {
+    margin: auto;
+    width: 70%;
+}
+
+@media (max-width: 600px) {
+    .toDoListWidget {
+        width: 90%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .toDoListWidget {
+        width: 50%;
+    }
+}
