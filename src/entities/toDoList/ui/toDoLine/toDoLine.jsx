@@ -13,7 +13,7 @@ const ToDoListLine = (props) => {
     const toDotextInput = useInput(props.toDoText);
 
     return (
-        <div className="toDoListLine">
+        <div className={ isCompleteInput.value ? "toDoListLine done" : "toDoListLine"}>
             <Checkbox
                 onChange={
                     (event) => {

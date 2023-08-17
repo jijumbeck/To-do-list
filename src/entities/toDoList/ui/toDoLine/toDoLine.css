@@ -14,3 +14,7 @@
 div {
     font-family: 'Roboto';
 }
+
+.done input {
+    color:#a8beca;
+}
