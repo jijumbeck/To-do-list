@@ -3,8 +3,6 @@ import './App.css';
 import { ToDoListWidget } from '../widgets/toDoListWidget/toDoListWidget';
 
 function App() {
-  
-
   return (
     <div className="App">
       <ToDoListWidget />
