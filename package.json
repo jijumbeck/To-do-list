@@ -1,6 +1,7 @@
 {
   "name": "to-do-list",
   "version": "0.1.0",
+  "homepage": "https://jijumbeck.github.io/To-do-list",
   "private": true,
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
@@ -23,7 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-webpack": "webpack-dev-server --open"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +53,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.8.1",
     "file-loader": "^6.2.0",
+    "gh-pages": "^6.0.0",
     "html-webpack-plugin": "^5.5.3",
     "style-loader": "^3.3.3",
     "webpack": "^5.88.2",
