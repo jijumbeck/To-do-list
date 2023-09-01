@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
@@ -22,7 +23,7 @@ module.exports = {
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: ['@babel/preset-env', "@babel/preset-react"]
+                        presets: ['@babel/preset-env', ["@babel/preset-react", { "runtime": "automatic" }]]
                     }
                 }
             },
@@ -32,7 +33,7 @@ module.exports = {
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: ['@babel/preset-env', "@babel/preset-react"]
+                        presets: ['@babel/preset-env', ["@babel/preset-react", { "runtime": "automatic" }]]
                     }
                 }
             },
@@ -40,9 +41,18 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new HTMLWebpackPlugin(),
+        new HTMLWebpackPlugin({
+            title: 'To Do List',
+            template: './src/index.html',
+        }),
+        new webpack.ProvidePlugin({
+            'React': 'react',
+        }),
     ],
     resolve: {
         extensions: ['', '.js', '.jsx'],
-      }
+    },
+    externals: {
+        'React': 'react',
+    },
 }
